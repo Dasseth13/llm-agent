@@ -26,7 +26,7 @@ class Calculator:
 
     def _evaluate_infix(self, tokens: list[str]) -> float:
         values: list[float] = []
-        operators: list[float] = []
+        operators: list[str] = []
 
         for token in tokens:
             if token in self.operators:
@@ -61,4 +61,4 @@ class Calculator:
 
         b = values.pop()
         a = values.pop()
-        values.append(self.operators[operator](a,b))
+        values.append(self.operators[operator](a, b))

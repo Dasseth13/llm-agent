@@ -1,6 +1,23 @@
 import os
 MAX_CHARS = 10000
 
+schema_get_file_content = {
+    "type": "function",
+    "function": {
+        "name": "get_file_content",
+        "description": "Retrieves the first 10000 characters of a file and indicates if there was a truncation",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "description": "Path to the file to retrieve content from, relative to the working directory (default is the working directory itself)",
+                },
+            },
+        },
+    },
+}
+
 def get_file_content(working_directory: str, file_path: str) -> str:
     try:
         abs_path = os.path.abspath(working_directory)
